@@ -1,0 +1,26 @@
+/* src/Navbar.css */
+
+.navbar {
+  display: flex;
+  position: relative;
+  justify-content: end; /* Space links at the end */
+  background-color: #fff; /* Navbar background color */
+  border-bottom: #000;
+  border-color: #000;
+  padding: 12px; /* Spacing around the links */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar a {
+  margin: 0 8px; /* Space between buttons */
+  color: black; /* Link text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: medium; /* Make text bold */
+  padding: 8px 12px; /* Padding for the links */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar a:hover {
+  background-color: #ebe9ff; /* Darker blue on hover */
+}
