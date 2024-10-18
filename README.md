@@ -36,8 +36,3 @@ npm start
 
 	4.	Visit http://localhost:3000 to access the app locally.
 
-Contributing
-
-Feel free to open issues or submit pull requests to contribute. All contributions, suggestions, and feedback are welcome!
-
-You can adjust or expand any section based on your specific project requirements or vision!
