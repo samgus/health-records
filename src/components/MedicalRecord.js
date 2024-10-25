@@ -1,4 +1,3 @@
-// src/MedicalRecord.js
 import React, { useState } from 'react';
 import './MedicalRecord.css';
 

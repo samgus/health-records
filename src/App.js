@@ -1,28 +1,33 @@
 // src/App.js
 import React from 'react';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Dashboard from './components/Dashboard';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
 import MedicalRecord from './components/MedicalRecord';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import SplashPage from './pages/SplashPage';
+import HealthRecords from './pages/HealthRecords';
 
 const App = () => {
   return (
     <div>
-    <Navbar/>
     <div>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<SplashPage />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/health-records" element={<HealthRecords/>} />
+      <Route path="/settings" element={<Settings />} />
       <Route path="/medical-record" element={<MedicalRecord />} />
     </Routes>
     </div>
-    <Footer/>
+    {/* <Footer/> */}
   </div>
   );
 };

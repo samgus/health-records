@@ -1,0 +1,30 @@
+/* src/components/RecentUpdatesTable.css */
+
+.settings-table-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  .delete-account-btn {
+    font-family: 'Inter';
+    font-weight: 500;
+    border: 1px solid #F04438;
+    border-radius: 8px;
+    color: #F04438;
+    background-color: #fff4f5;
+    padding: 16px 24px;
+    width: 100%; /* This makes the button take the full width of its container */
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+  }
+  
+  .delete-account-btn:hover {
+    background: #ffdcdc;
+    /* color: white; */
+  }
+  

@@ -1,4 +1,3 @@
-/* Signup.css */
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -34,7 +33,7 @@
   
   .signup-container button {
     padding: 10px; /* Padding inside the button */
-    background-color: #4A3AFF; /* Color for view buttons */
+    background-color: #5E2E93; /* Color for view buttons */
     ; /* Primary color for the button */
     color: #fff; /* White text color */
     border: none; /* No border */

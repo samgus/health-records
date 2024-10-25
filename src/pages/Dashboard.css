@@ -1,0 +1,59 @@
+/* src/pages/Dashboard.css */
+
+/* General styling for dashboard container */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Left-align the header (main title) */
+.dashboard-header {
+  font-family: 'Satoshi';
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+}
+
+/* Left-align the subheader */
+.dashboard-subheader {
+  font-family: 'Inter';
+  font-size: 16px;
+  font-weight: normal;
+  color: #666;
+  text-align: left;
+}
+
+/* Ensure that the table is left-aligned */
+.table-container {
+  width: 100%;
+  text-align: left;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+}
+
+th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+td {
+  font-size: 14px;
+  color: #666;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}

@@ -1,19 +1,26 @@
-// src/Navbar.js
+// src/components/Navbar.js
+
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css'; // Import the CSS file for styling
+import './Navbar.css'; // Import the CSS for styling
+import Logo from '../images/cube-01.svg'
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link className="nav-link" to="/">Home</Link>
-      <Link className="nav-link" to="/dashboard">Dashboard</Link>
-      <Link className="nav-link" to="/medical-record">Records</Link>
-      <Link className="nav-link" to="/login">Login</Link>
-      <Link className="nav-link" to="/signup">Signup</Link>
+      <div className="navbar-left">
+        <img src={Logo} alt="Logo" className="navbar-logo" />
+        <span className="navbar-title">DocVault</span>
+      </div>
+      <div className="navbar-right">
+        <div className="profile-info">
+          <div className="profile-icon">
+            OB
+          </div>
+          <span className="profile-name">Olivia Benson</span>
+        </div>
+      </div>
     </nav>
   );
 };
 
 export default Navbar;
-

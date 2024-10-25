@@ -1,0 +1,102 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: #f7f8fa;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .sidebar-logo h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3d3d3d;
+    margin-bottom: 40px;
+  }
+  
+  .sidebar-menu {
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu-item {
+    text-decoration: none; /* Ensure no underline for menu items */
+    padding: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #4f4f4f;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    background-color: #EFEAF4;
+  }
+  
+  .menu-item.active {
+    text-decoration: none;
+
+    background-color: #EFEAF4;
+    color: #1A181D;
+  }
+  
+  .menu-item i {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  .menu-item a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Prevent underline in anchor links */
+    color: #1A181D;
+  }
+
+  .menu-item img {
+    margin-right: 8px;
+  }
+  
+  .logout-btn {
+    text-decoration: none; /* Ensure no underline for menu items */
+    padding: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: white;
+    color: #ff5252;
+    border-color: #ff5252;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #ffdcdc;
+  }
+
+  .logout-btn i {
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  .logout-btn a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none; /* Prevent underline in anchor links */
+  }
+
+  .logout-btn img {
+    margin-right: 8px;
+  }
+  

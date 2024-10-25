@@ -1,0 +1,98 @@
+/* src/pages/HealthRecords.css */
+
+/* Styling for the main health records section */
+.health-records {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  /* Header section */
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Health records header */
+  .health-header {
+    font-family: 'Satoshi';
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+  }
+  
+  /* Health records subheader */
+  .health-subheader {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+    text-align: left;
+  }
+  
+  /* Add New Record button */
+  .add-record-button {
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-record-button:hover {
+    background-color: #5a52d6;
+  }
+  
+  /* Table container styling */
+  .table-container {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Table title */
+  .table-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Patients table styling */
+  .patients-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .patients-table th, .patients-table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 16px;
+  }
+  
+  .patients-table th {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .patients-table td {
+    color: #666;
+  }
+  
+  .patients-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  /* Add arrow icons next to each patient row */
+  .patients-table td:last-child::after {
+    content: '›';
+    float: right;
+    color: #666;
+  }
+  
