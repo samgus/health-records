@@ -10,6 +10,7 @@ import Settings from './pages/Settings';
 import MedicalRecord from './components/MedicalRecord';
 import SplashPage from './pages/SplashPage';
 import HealthRecords from './pages/HealthRecords';
+import AddPatient from './pages/AddPatient';
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/health-records" element={<HealthRecords/>} />
+      <Route path="/add-patient" element={<AddPatient/>} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/medical-record" element={<MedicalRecord />} />
     </Routes>

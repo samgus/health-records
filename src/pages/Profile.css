@@ -41,14 +41,14 @@
     font-weight: 700;
     color: #000;
     text-align: left;
-    font-family: 'Satoshi';
+    font-family: 'Quicksand';
   }
   
   /* Left-align the subheader */
   .profile-subheader {
     font-family: 'Inter';
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 500;
     color: #666;
     text-align: left;
   }

@@ -1,4 +1,3 @@
-/* src/components/RecentUpdatesTable.css */
 
 .updates-table-container {
     padding: 20px;
@@ -8,7 +7,6 @@
   }
   
   .table-header {
-    font-family: 'Inter';
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,6 +14,7 @@
   }
   
   .table-header h2 {
+    font-family: 'Inter';
     font-size: 20px;
     font-weight: bold;
     color: #333;
@@ -44,12 +43,16 @@
   }
   
   .updates-table th {
+    font-family: 'Inter';
+    font-weight: 500;
     font-size: 16px;
     color: #333;
     font-weight: 600;
   }
   
   .updates-table td {
+    font-family: 'Inter';
+    font-weight: 500;
     font-size: 14px;
     color: #666;
   }

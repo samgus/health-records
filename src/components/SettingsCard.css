@@ -12,6 +12,7 @@
   .delete-account-btn {
     font-family: 'Inter';
     font-weight: 500;
+    font-size: 14px;
     border: 1px solid #F04438;
     border-radius: 8px;
     color: #F04438;

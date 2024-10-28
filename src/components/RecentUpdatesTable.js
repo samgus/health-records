@@ -1,7 +1,9 @@
 // src/components/RecentUpdatesTable.js
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './RecentUpdatesTable.css'; // Import the CSS file for styling
+import Plus from '../images/plus.svg'
 
 const RecentUpdatesTable = () => {
   const updates = [
@@ -34,7 +36,12 @@ const RecentUpdatesTable = () => {
           ))}
         </tbody>
       </table>
-      <button className="add-new-record-btn">Add Patient</button>
+      <Link to={'/add-patient'}>
+      <button className="add-new-record-btn">
+        <img src={Plus} alt="Plus" />
+        Add Patient
+        </button>
+      </Link>
     </div>
   );
 };

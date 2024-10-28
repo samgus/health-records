@@ -7,7 +7,7 @@
   
   /* Left-align the header (main title) */
   .settings-header {
-    font-family: 'Satoshi';
+    font-family: 'Quicksand';
     font-size: 32px;
     font-weight: bold;
     color: #000;
@@ -18,7 +18,7 @@
   .settings-subheader {
     font-family: 'Inter';
     font-size: 16px;
-    font-weight: normal;
+    font-weight: 500;
     color: #666;
     text-align: left;
   }
