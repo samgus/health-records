@@ -6,7 +6,7 @@ import './AllPatients.css'; // Import the CSS file for styling
 import Plus from '../images/plus.svg'
 
 const AllPatients = () => {
-  const updates = [
+  const patients = [
     { name: 'Daniel Radcliff', date: 'Today' },
     { name: 'Samuel L. Jackson', date: 'Oct 20, 2024' },
     { name: 'Brad Pitt', date: 'Oct 06, 2024' },
@@ -31,10 +31,10 @@ const AllPatients = () => {
           </tr>
         </thead>
         <tbody>
-          {updates.map((update, index) => (
+          {patients.map((patient, index) => (
             <tr key={index}>
-              <td>{update.name}</td>
-              <td>{update.date}</td>
+              <Link to={'/patient-profile'}><td>{patient.name}</td></Link>
+              <td>{patient.date}</td>
             </tr>
           ))}
         </tbody>

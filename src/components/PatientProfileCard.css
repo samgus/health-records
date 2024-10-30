@@ -1,0 +1,89 @@
+/* .patient-profile-card-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+} */
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.profile-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.section {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.section h2 {
+    font-family: 'Inter';
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin: 12px 0;
+    text-align: left;
+    font-size: 14px;
+    /* line-height: 20px; */
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    background-color: #fff;
+    /* padding: 20px; */
+}
+
+.section p span {
+    display: inline-block;
+    line-height: 20px;
+
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+}
+
+.section .label {
+    flex: 0 0 200px; /* Adjust width based on the space you need for labels */
+    color: #1A181D;
+}
+
+.section .right-align {
+    flex: 1;
+    text-align: right;
+    word-wrap: break-word;
+}
+
+.section ul li {
+    margin-bottom: 8px;
+}
+
+.section-grid {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+}

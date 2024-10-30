@@ -1,0 +1,54 @@
+.edit-information-btn {
+    padding: 10px 16px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #c6c5c5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-information-btn:hover {
+    background-color: #f7efff;
+  }
+
+  /* General styling for dashboard container */
+.patient-profile {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .patient-profile-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
+  .patient-profile-header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Left-align the header (main title) */
+  .patient-profile-header {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+    font-family: 'Quicksand';
+  }
+  
+  /* Left-align the subheader */
+  .patient-profile-subheader {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    text-align: left;
+  }

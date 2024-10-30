@@ -7,6 +7,7 @@
   
   .table-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
@@ -53,6 +54,9 @@
     font-weight: 500;
     font-size: 14px;
     color: #666;
+  }
+
+  .updates-table tr {
   }
   
   .updates-table tr:hover {

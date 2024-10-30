@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddPatientCard.css'; // Import the CSS file for styling
+import Plus from '../images/plus.svg'
 
 const AddPatientCard = () => {
   // State to hold individual patient data
@@ -46,7 +47,7 @@ const AddPatientCard = () => {
       <div className="table-header">
         <h2>Patient Information</h2>
       </div>
-      <table className="updates-table">
+      <table className="form-grid">
         <form onSubmit={handleSubmit}>
             <div>
             <label>Full Name</label>
@@ -130,7 +131,12 @@ const AddPatientCard = () => {
             />
             </div>
             {/* Add other form fields similarly */}
-            <button className="add-new-record-btn"> Save Changes</button>
+            <Link>
+              <button className="add-new-record-btn">
+                <img src={Plus} alt="Plus" />
+                  Add Record
+                </button>
+            </Link>
         </form>
       </table>
       <div className="patient-list">
