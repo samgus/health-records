@@ -1,48 +1,28 @@
-import React, { useState } from 'react';
-import { auth } from '../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import './Signup.css';
+// src/components/SignUp.js
+import React, { useState } from "react";
+import { signUp } from "../AuthService";
 
-const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSignup = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User created successfully");
-      // Redirect to the dashboard or do something else
+      await signUp(email, password);
+      alert("Account created successfully");
     } catch (error) {
-      setError(error.message);
-      console.error("Error creating user:", error);
+      alert("Error signing up: " + error.message);
     }
   };
 
   return (
-    <div className="signup-container">
-      <h2>Sign Up</h2>
-      <form onSubmit={handleSignup}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Sign Up</button>
-        {error && <p>{error}</p>} {/* Display error message if any */}
-      </form>
-    </div>
+    <form onSubmit={handleSignUp}>
+      <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+      <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+      <button type="submit">Sign Up</button>
+    </form>
   );
-};
+}
 
-export default Signup;
+export default SignUp;

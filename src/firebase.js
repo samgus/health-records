@@ -1,9 +1,10 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';  // If you're using Firestore for database
-import { getStorage } from 'firebase/storage';  // If you're using Firebase Storage
+import { getFirestore } from 'firebase/firestore'; // If you're using Firestore for database
+import { getStorage } from 'firebase/storage'; // If you're using Firebase Storage
 
+// Firebase configuration object
 const firebaseConfig = {
   apiKey: "AIzaSyCEc3S9OKGH_b29BNuAKCz9H9EUJlrbSyY",
   authDomain: "personal-health-record-44560.firebaseapp.com",
@@ -18,5 +19,5 @@ const app = initializeApp(firebaseConfig);
 
 // Export Firebase authentication, Firestore, and storage services
 export const auth = getAuth(app);
-export const db = getFirestore(app);  // If you're using Firestore
-export const storage = getStorage(app);  // If you're using Firebase Storage
+export const db = getFirestore(app); // If you're using Firestore
+export const storage = getStorage(app); // If you're using Firebase Storage

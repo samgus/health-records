@@ -14,10 +14,12 @@ import AddPatient from './pages/AddPatient';
 import PatientProfile from './pages/PatientProfile';
 import EditPatientProfile from './pages/EditPatientProfile';
 import NotFoundPage from './pages/404page';
+import { PatientsProvider } from './components/PatientsContext';
 
 const App = () => {
   return (
     <div>
+    <PatientsProvider>
     <Routes>
       <Route path="/" element={<SplashPage />} />
       <Route path="/Home" element={<Home />} />
@@ -27,7 +29,7 @@ const App = () => {
       <Route path="/edit-profile" element={<EditProfile />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/health-records" element={<HealthRecords/>} />
-      <Route path="/patient-profile" element={<PatientProfile/>} />
+      <Route path="/patient-profile/:id" element={<PatientProfile/>} />
       <Route path="/add-patient" element={<AddPatient/>} />
       <Route path="/edit-patient-profile" element={<EditPatientProfile/>} />
       <Route path="/settings" element={<Settings />} />
@@ -36,6 +38,7 @@ const App = () => {
       {/* Catch-all route for undefined paths */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
+    </PatientsProvider>
     </div>
   );
 };

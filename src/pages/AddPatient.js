@@ -15,10 +15,10 @@ const AddPatient = () => {
                   <p className="profile-subheader">Add a new patients information to your list</p>
                 </div>
                 <div className='btn-container'>
-                  <Link to={'/health-records'}>
+                  {/* <Link to={'/health-records'}>
                     <button className="cancel-btn">Cancel</button>
                   </Link>
-                    <button className="save-changes-btn">Save Changes</button>
+                    <button className="save-changes-btn">Save Changes</button> */}
                 </div>
               </div>           
             <AdditionalCard />

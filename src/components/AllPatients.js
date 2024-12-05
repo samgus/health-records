@@ -1,52 +1,39 @@
-// src/components/RecentUpdatesTable.js
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase"; // Update with your firebase.js path
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './AllPatients.css'; // Import the CSS file for styling
-import Plus from '../images/plus.svg'
+const Allpatients = () => {
+    const [patientsList, setPatientsList] = useState([]);
 
-const AllPatients = () => {
-  const patients = [
-    { name: 'Daniel Radcliff', date: 'Today' },
-    { name: 'Samuel L. Jackson', date: 'Oct 20, 2024' },
-    { name: 'Brad Pitt', date: 'Oct 06, 2024' },
-    { name: 'Toby Maguire', date: 'Sept 29, 2024' },
-    { name: 'Emma Stone', date: 'Sept 13, 2024' },
-    { name: 'Samuel L. Jackson', date: 'Oct 20, 2024' },
-    { name: 'Brad Pitt', date: 'Oct 06, 2024' },
-    { name: 'Toby Maguire', date: 'Sept 29, 2024' },
-  ];
+    useEffect(() => {
+        const fetchPatients = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "patients"));
+                const patients = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setPatientsList(patients);
+            } catch (error) {
+                console.error("Error fetching patient data: ", error);
+            }
+        };
 
-  return (
-    <div className="updates-table-container">
-      <div className="table-header">
-        <h2>Patients</h2>
-        {/* <a href="/all-records" className="view-all-link">View All</a> */}
-      </div>
-      <table className="updates-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Last Updated</th>
-          </tr>
-        </thead>
-        <tbody>
-          {patients.map((patient, index) => (
-            <tr key={index}>
-              <Link to={'/patient-profile'}><td>{patient.name}</td></Link>
-              <td>{patient.date}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <Link to={'/add-patient'}>
-      <button className="add-new-record-btn">
-        <img src={Plus} alt="Plus" />
-        Add Patient
-        </button>
-      </Link>
-    </div>
-  );
+        fetchPatients();
+    }, []);
+
+    return (
+        <div>
+            <h2>All Patients</h2>
+            <ul>
+                {patientsList.map((patient) => (
+                    <li key={patient.id}>
+                        {patient.fullName} - {patient.dateOfBirth}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 };
 
-export default AllPatients;
+export default Allpatients;

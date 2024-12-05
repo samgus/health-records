@@ -62,7 +62,7 @@
   }
   
   .add-new-record-btn {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +78,23 @@
   
   .add-new-record-btn:hover {
     background-color: #7338b3;
+  }
+
+  .cancel-btn {
+    padding: 10px 16px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #c6c5c5;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #f7efff;
   }
   
   .add-record-form {
@@ -158,4 +175,14 @@ select {
   background-size: 12px;
 }
 
-  
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Adds 8px space between buttons */
+}
+
+.additional-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
