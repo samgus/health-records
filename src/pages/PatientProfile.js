@@ -7,16 +7,18 @@ import Layout from '../components/Layout';
 import PatientProfileCard from '../components/PatientProfileCard';
 
 const PatientProfile = () => {
-  const { id } = useParams(); // Get the patient ID from the URL
+  const params = useParams(); // Get the patient ID from the URL
+  const patientId = params.patientId;
   const [patient, setPatient] = useState(null);
 
   // Fetch patient data from Firestore
   useEffect(() => {
     const fetchPatient = async () => {
       try {
-        const patientDoc = await getDoc(doc(db, 'patients', id));
+        const patientDoc = await getDoc(doc(db, 'patients', patientId));
         if (patientDoc.exists()) {
-          setPatient(patientDoc.data());
+          // Include the id explicitly in the patient object
+          setPatient({ id: patientDoc.id, ...patientDoc.data() });
         } else {
           console.error('No such patient!');
         }
@@ -26,7 +28,7 @@ const PatientProfile = () => {
     };
 
     fetchPatient();
-  }, [id]);
+  }, [patientId]);
 
   // Show a loading message until the data is loaded
   if (!patient) {
@@ -47,15 +49,14 @@ const PatientProfile = () => {
             <h1 className="patient-profile-header">{patient.fullName || 'Patient Name'}</h1>
             <p className="patient-profile-subheader">Manage {patient.fullName || 'the patient'}'s medical records.</p>
           </div>
-          <Link to={`/edit-patient-profile/${id}`}>
+          <Link to={`/edit-patient-profile/${patient.id}`}>
             <button className="edit-information-btn">Edit Information</button>
           </Link>
         </div>
-        <PatientProfileCard />
+        <PatientProfileCard patientId={patientId} />
       </div>
     </Layout>
   );
 };
 
 export default PatientProfile;
-

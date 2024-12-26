@@ -20,24 +20,24 @@ const App = () => {
   return (
     <div>
     <PatientsProvider>
-    <Routes>
-      <Route path="/" element={<SplashPage />} />
-      <Route path="/Home" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/edit-profile" element={<EditProfile />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/health-records" element={<HealthRecords/>} />
-      <Route path="/patient-profile/:id" element={<PatientProfile/>} />
-      <Route path="/add-patient" element={<AddPatient/>} />
-      <Route path="/edit-patient-profile" element={<EditPatientProfile/>} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/medical-record" element={<MedicalRecord />} />
+      <Routes>
+        <Route path="/" element={<SplashPage />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/health-records" element={<HealthRecords/>} />
+        <Route path="/patient-profile/:patientId" element={<PatientProfile/>} />
+        <Route path="/add-patient" element={<AddPatient/>} />
+        <Route path="/edit-patient-profile/:patientId" element={<EditPatientProfile/>} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/medical-record" element={<MedicalRecord />} />
 
-      {/* Catch-all route for undefined paths */}
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
+        {/* Catch-all route for undefined paths */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </PatientsProvider>
     </div>
   );

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase"; // Update with your firebase.js path
 import './AdditionalCard.css';
 import Plus from '../images/plus.svg';
 
 const AdditionalCard = () => {
+  const navigate = useNavigate();
   const [patient, setPatient] = useState({
     fullName: '',
     dateOfBirth: '',
@@ -16,6 +17,35 @@ const AdditionalCard = () => {
     maritalStatus: '',
     emergencyContact: '',
     occupation: '',
+    provider: '',
+    policyNumber: '',
+    groupNumber: '',
+    coverageType: '',
+    pcp: '',
+    effectiveDate: '',
+    smokingStatus: '',
+    alcoholUse: '',
+    exercise: '',
+    diet: '',
+    sleepHabits: '',
+    stressLevels: '',
+    chronicConditions: '',
+    surgeries: '',
+    medications: '',
+    allergies: '',
+    date: '',
+    reasonForVisit: '',
+    notes: '',
+    nextAppointment: '',
+    height: '',
+    weight: '',
+    bmi: '',
+    bloodPressure: '',
+    heartRate: '',
+    respiratoryRate: '',
+    generalHealthStatus: '',
+    recommendations: '',
+    referrals: '',
   });
 
   const inputStyle = {
@@ -90,33 +120,32 @@ const AdditionalCard = () => {
               diet: '',
               sleepHabits: '',
               stressLevels: '',
+              chronicConditions: '',
+              surgeries: '',
+              medications: '',
+              allergies: '',
+              date: '',
+              reasonForVisit: '',
+              notes: '',
+              nextAppointment: '',
+              height: '',
+              weight: '',
+              bmi: '',
+              bloodPressure: '',
+              heartRate: '',
+              respiratoryRate: '',
+              generalHealthStatus: '',
+              recommendations: '',
+              referrals: '',
           });
           setShowForm(false); // Hide the form
           alert("Patient record added successfully!");
+          navigate('/health-records');
       } catch (error) {
           console.error("Error adding document: ", error);
           alert("Failed to add patient record.");
       }
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setPatientsList([...patientsList, patient]);
-
-  //   setPatient({
-  //     fullName: '',
-  //     dateOfBirth: '',
-  //     gender: '',
-  //     address: '',
-  //     phoneNumber: '',
-  //     email: '',
-  //     maritalStatus: '',
-  //     emergencyContact: '',
-  //     occupation: '',
-  //   });
-
-  //   setShowForm(false);
-  // };
 
   return (
     <div className="updates-table-container">
@@ -128,15 +157,50 @@ const AdditionalCard = () => {
         <label>Add a New Record: </label>
         <select style={inputStyle} value={formType} onChange={handleFormTypeChange}>
           <option value="">Select an option</option>
+          <option value="doctorsNotes">Doctor's Notes</option>
           <option value="personal">Personal Information</option>
+          <option value="vitals">Vitals</option>
           <option value="insurance">Insurance Information</option>
+          <option value="medicalHistory">Medical History</option>
           <option value="lifeStyle">Lifestyle Information</option>
+          <option value="latestVisit">Latest Visit</option>
         </select>
       </div>
 
       {showForm && (
         <form onSubmit={handleSubmit}>
           <div className="form-grid">
+            {formType === 'doctorsNotes' && (
+              <>
+                <div>
+                  <label>General Health Status</label>
+                  <input
+                    type="text"
+                    name="generalHealthStatus"
+                    value={patient.generalHealthStatus}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Recommendations</label>
+                  <input
+                    type="text"
+                    name="recommendations"
+                    value={patient.recommendations}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Referrals</label>
+                  <input
+                    type="text"
+                    name="referrals"
+                    value={patient.referrals}
+                    onChange={handleChange}
+                  />
+                </div>
+              </>
+            )}
             {formType === 'personal' && (
               <>
                 <div>
@@ -222,6 +286,64 @@ const AdditionalCard = () => {
                 </div>
               </>
             )}
+             {formType === 'vitals' && (
+              <>
+                <div>
+                  <label>Height</label>
+                  <input
+                    type="text"
+                    name="height"
+                    value={patient.height}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Weight</label>
+                  <input
+                    type="text"
+                    name="weight"
+                    value={patient.weight}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>BMI</label>
+                  <input
+                    type="text"
+                    name="bmi"
+                    value={patient.bmi}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Blood Pressure</label>
+                  <input
+                    type="text"
+                    name="bloodPressure"
+                    value={patient.bloodPressure}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Heart Rate</label>
+                  <input
+                    type="text"
+                    name="heartRate"
+                    value={patient.heartRate}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Respiratory Rate</label>
+                  <input
+                    type="text"
+                    name="respiratoryRate"
+                    value={patient.respiratoryRate}
+                    onChange={handleChange}
+                  />
+                </div>
+              </>
+            )}
             {formType === 'insurance' && (
               <>
                 <div>
@@ -275,6 +397,64 @@ const AdditionalCard = () => {
                     type="date"
                     name="effectiveDate"
                     value={patient.effectiveDate}
+                    onChange={handleChange}
+                  />
+                </div>
+              </>
+            )}
+            {formType === 'medicalHistory' && (
+              <>
+                <div>
+                  <label>Chronic Conditions</label>
+                  <input
+                    type="text"
+                    name="chronicConditions"
+                    value={patient.chronicConditions}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Surgeries/Procedures</label>
+                  <input
+                    type="text"
+                    name="surgeries"
+                    value={patient.surgeries}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Medications</label>
+                  <input
+                    type="text"
+                    name="medications"
+                    value={patient.medications}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Allergies</label>
+                  <input
+                    type="text"
+                    name="allergies"
+                    value={patient.allergies}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Immunizations</label>
+                  <input
+                    type="text"
+                    name="immunizations"
+                    value={patient.immunizations}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Family Medical History</label>
+                  <input
+                    type="text"
+                    name="familyMedicalHistory"
+                    value={patient.familyMedicalHistory}
                     onChange={handleChange}
                   />
                 </div>
@@ -338,7 +518,48 @@ const AdditionalCard = () => {
                 </div>
               </>
             )}
-          </div >
+            {formType === 'latestVisit' && (
+              <>
+                <div>
+                  <label>Date</label>
+                  <input
+                    type="date"
+                    name="date"
+                    value={patient.date}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Reason for Visit</label>
+                  <input
+                    type="text"
+                    name="reasonForVisit"
+                    value={patient.reasonForVisit}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Notes</label>
+                  <input
+                    type="text"
+                    name="notes"
+                    value={patient.notes}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <label>Next Appointment</label>
+                  <input
+                    type="date"
+                    name="nextAppointment"
+                    value={patient.nextAppointment}
+                    onChange={handleChange}
+                  />
+                </div>
+              </>
+            )}
+           
+          </div>
           <div className='btn-container'>
             <Link to={'/health-records'}>
               <button className="cancel-btn">Cancel</button>

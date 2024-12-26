@@ -25,7 +25,7 @@ const HealthRecordsCard = () => {
 
     fetchPatients();
   }, []);
-
+  console.log('patients: ',patients)
   return (
     <div className="updates-table-container">
       <div className="table-header">
