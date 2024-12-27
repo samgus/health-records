@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import './HealthRecordsCard.css'; // Import the CSS file for styling
-import Plus from '../images/plus.svg';
-import { doc, getDoc } from 'firebase/firestore'; // Firestore imports
+import { Link } from 'react-router-dom';
+import './HealthRecordsCard.css';
 import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase'; // Adjust the path to your Firebase configuration
+import { db } from '../firebase';
+import { updateLastAccessed } from '../utils/firebaseUtils'; // Import the function
 
 const HealthRecordsCard = () => {
-  const params = useParams(); // Get the patient ID from the URL
-  const patientId = params.patientId;
-  const [patient, setPatient] = useState(null);
   const [patients, setPatients] = useState([]);
 
-  // Fetch patients from Firestore on component mount
   useEffect(() => {
     const fetchPatients = async () => {
       try {
@@ -30,31 +25,12 @@ const HealthRecordsCard = () => {
     fetchPatients();
   }, []);
 
-    // Fetch patient data from Firestore
-    useEffect(() => {
-      const fetchPatient = async () => {
-        try {
-          const patientDoc = await getDoc(doc(db, 'patients', patientId));
-          if (patientDoc.exists()) {
-            // Include the id explicitly in the patient object
-            setPatient({ id: patientDoc.id, ...patientDoc.data() });
-          } else {
-            console.error('No such patient!');
-          }
-        } catch (error) {
-          console.error('Error fetching patient:', error);
-        }
-      };
-  
-      fetchPatient();
-    }, [patientId]);
+  const handlePatientClick = async (patientId) => {
+    await updateLastAccessed(patientId); // Update the lastAccessed field
+  };
 
-  console.log('patients: ',patients)
   return (
     <div className="updates-table-container">
-      <div className="table-header">
-        <h2>Patients</h2>
-      </div>
       <table className="updates-table">
         <thead>
           <tr>
@@ -65,7 +41,7 @@ const HealthRecordsCard = () => {
         <tbody>
           {patients.map((patient) => (
             <tr key={patient.id}>
-              <Link to={`/patient-profile/${patient.id}`}>
+              <Link to={`/patient-profile/${patient.id}`} onClick={() => handlePatientClick(patient.id)}>
                 <td>{patient.fullName || 'N/A'}</td>
               </Link>
               <td>{patient.dateOfBirth || 'N/A'}</td>
@@ -75,7 +51,7 @@ const HealthRecordsCard = () => {
       </table>
       <Link to={'/add-patient'}>
         <button className="add-new-record-btn">
-          <img src={Plus} alt="Plus" />
+          {/* <img src={Plus} alt="Plus" /> */}
           Add Patient
         </button>
       </Link>
