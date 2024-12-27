@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { doc, getDoc, deleteDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Adjust the path to your Firebase configuration
 import './EditPatientProfile.css';
 import Layout from '../components/Layout';
@@ -10,6 +10,7 @@ import EditPatientCard from '../components/EditPatientCard';
 const EditPatientProfile = () => {
   const params = useParams(); // Get the patient ID from the URL
   const patientId = params.patientId
+  const navigate = useNavigate();
   console.log(params)
   const [patient, setPatient] = useState(null);
 
@@ -31,6 +32,21 @@ const EditPatientProfile = () => {
    
       fetchPatient();
     }, [patientId]);
+
+      const handleDelete = async () => {
+        const confirmed = window.confirm('Are you sure you want to delete this patient? This action cannot be undone.');
+        if (confirmed) {
+          try {
+            await deleteDoc(doc(db, 'patients', patientId));
+            alert('Patient deleted successfully!');
+            setPatient(null); // Optionally clear the UI
+            navigate('/health-records');
+          } catch (error) {
+            console.error('Error deleting patient:', error);
+            alert('Failed to delete the patient.');
+          }
+        }
+      };
   
     // Show a loading message until the data is loaded
     if (!patient) {
@@ -52,10 +68,10 @@ const EditPatientProfile = () => {
                   <p className="edit-patient-subheader">Update {patient.fullName || 'Patient Name'}'s information</p>
                 </div>
                 <div className='btn-container'>
-                  {/* <Link to={'/patient-profile'}>
-                    <button className="cancel-btn">Cancel</button>
+                  <Link to={'/health-records'}>
+                    <button className="delete-patient-btn" onClick={handleDelete}>Delete Patient</button>
                   </Link>
-                    <button className="save-changes-btn">Save Changes</button> */}
+                    {/* <button className="save-changes-btn">Save Changes</button> */}
                 </div>
               </div>           
             <EditPatientCard patientId={patientId} />

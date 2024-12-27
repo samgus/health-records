@@ -41,22 +41,7 @@
   }
   
 
-  .cancel-btn {
-    padding: 10px 16px;
-    font-family: 'Inter';
-    font-weight: 500;
-    font-size: 14px;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid #c6c5c5;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .cancel-btn:hover {
-    background-color: #f7efff;
-  }
+
 
   .save-changes-btn {
     display: flex;
@@ -74,4 +59,21 @@
   
   .save-changes-btn:hover {
     background-color: #7338b3;
+  }
+
+  .delete-patient-btn {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #F04438;
+    border-radius: 8px;
+    color: #F04438;
+    background-color: #fff4f5;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-patient-btn:hover {
+    background: #ffdcdc;
   }

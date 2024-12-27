@@ -1,5 +1,4 @@
 import React from 'react';
-import { auth } from '../firebase'; // Import Firebase auth
 import './ProfileInfo.css'; // Import the CSS file for styling
 
 const ProfileInfo = () => {

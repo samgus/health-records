@@ -560,13 +560,13 @@ const AdditionalCard = () => {
             )}
            
           </div>
-          <div className='btn-container'>
+          <div className='add-btn-container'>
             <Link to={'/health-records'}>
-              <button className="cancel-btn">Cancel</button>
+              <button className="cancel-add-btn">Cancel</button>
             </Link>
-            <button className="add-new-record-btn" type="submit">
-              <img src={Plus} alt="Plus" />
-              Save Changes
+            <button className="add-new-patient-btn" type="submit">
+              {/* <img src={Plus} alt="Plus" /> */}
+              Add Patient
             </button>
           </div>
         </form>
