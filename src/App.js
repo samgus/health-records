@@ -1,13 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import EditProfile from './pages/EditProfile';
 import Settings from './pages/Settings';
-import MedicalRecord from './components/MedicalRecord';
 import SplashPage from './pages/SplashPage';
 import HealthRecords from './pages/HealthRecords';
 import AddPatient from './pages/AddPatient';
@@ -22,7 +20,6 @@ const App = () => {
     <PatientsProvider>
       <Routes>
         <Route path="/" element={<SplashPage />} />
-        <Route path="/Home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
@@ -33,7 +30,6 @@ const App = () => {
         <Route path="/add-patient" element={<AddPatient/>} />
         <Route path="/edit-patient-profile/:patientId" element={<EditPatientProfile/>} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/medical-record" element={<MedicalRecord />} />
 
         {/* Catch-all route for undefined paths */}
         <Route path="*" element={<NotFoundPage />} />

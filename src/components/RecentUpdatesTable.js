@@ -1,5 +1,3 @@
-// src/components/RecentUpdatesTable.js
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './RecentUpdatesTable.css'; // Import the CSS file for styling

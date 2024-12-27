@@ -5,7 +5,6 @@ import { db } from '../firebase'; // Import Firestore configuration
 import './PatientProfileCard.css'; // Import the CSS file for styling
 
 const PatientProfileCard = ({patientId}) => {
-  // console.log('props: ',props)
   const [patientData, setPatientData] = useState(null); // State to hold patient data
   const [error, setError] = useState(null); // State for error handling
 
