@@ -50,9 +50,9 @@ const HealthRecordsCard = () => {
         </tbody>
       </table>
       <Link to={'/add-patient'}>
-        <button className="add-new-record-btn">
+        <button className="new-patient-btn">
           {/* <img src={Plus} alt="Plus" /> */}
-          Add Patient
+          New Patient
         </button>
       </Link>
     </div>

@@ -154,7 +154,7 @@ const AdditionalCard = () => {
       </div>
 
       <div className="form-selection">
-        <label>Add a New Record: </label>
+        <label>Patient Details: </label>
         <select style={inputStyle} value={formType} onChange={handleFormTypeChange}>
           <option value="">Select an option</option>
           <option value="doctorsNotes">Doctor's Notes</option>
