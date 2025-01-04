@@ -65,7 +65,6 @@ const AdditionalCard = () => {
     backgroundSize: '12px',
   };
 
-  const [patientsList, setPatientsList] = useState([]);
   const [formType, setFormType] = useState('');
   const [showForm, setShowForm] = useState(false);
 
@@ -93,10 +92,7 @@ const AdditionalCard = () => {
       try {
           // Save patient data to Firestore
           await addDoc(collection(db, "patients"), patient);
-  
-          // Update local state
-          setPatientsList([...patientsList, patient]);
-  
+
           // Reset the form
           setPatient({
               fullName: '',

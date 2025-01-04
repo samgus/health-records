@@ -17,3 +17,20 @@ export const addNewPatient = async (patientData, userId = null) => {
         console.error("Error adding patient:", error);
     }
 };
+
+export const addNewUser = async (userData, userId = null) => {
+    try {
+        const userCollection = collection(db, "users");
+        if (userId) {
+            // Save with a specific ID
+            const userDoc = doc(db, "users", userId);
+            await setDoc(userDoc, userData);
+        } else {
+            // Save with an auto-generated ID
+            await addDoc(userCollection, userData);
+        }
+        console.log("User added successfully!");
+    } catch (error) {
+        console.error("Error adding user:", error);
+    }
+};

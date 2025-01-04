@@ -36,6 +36,12 @@ const PatientProfileCard = ({patientId}) => {
     return <div className="patient-profile-card-container">Error: {error}</div>;
   }
 
+  const formatDate = (date) => {
+    if (!date) return 'N/A';
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date.seconds * 1000).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div className="patient-profile-card-container">
       <div className="section doctor-notes">

@@ -29,6 +29,12 @@ const HealthRecordsCard = () => {
     await updateLastAccessed(patientId); // Update the lastAccessed field
   };
 
+  const formatDate = (date) => {
+    if (!date) return 'N/A';
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date.seconds * 1000).toLocaleDateString(undefined, options);
+  };
+
   return (
     <div className="updates-table-container">
       <table className="updates-table">
@@ -41,9 +47,11 @@ const HealthRecordsCard = () => {
         <tbody>
           {patients.map((patient) => (
             <tr key={patient.id}>
-              <Link to={`/patient-profile/${patient.id}`} onClick={() => handlePatientClick(patient.id)}>
-                <td>{patient.fullName || 'N/A'}</td>
-              </Link>
+              <td>
+                <Link to={`/patient-profile/${patient.id}`} onClick={() => handlePatientClick(patient.id)} className="name-cell">
+                  {patient.fullName || 'N/A'}
+                </Link>
+              </td>
               <td>{patient.dateOfBirth || 'N/A'}</td>
             </tr>
           ))}

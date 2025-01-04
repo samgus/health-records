@@ -1,21 +1,31 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 import './ProfileInfo.css'; // Import the CSS file for styling
 
 const ProfileInfo = () => {
-  const doctorInformation = [
-    { name: 'Full Name', date: 'Olivia Benson' },
-    { name: 'Work Email', date: 'obenson@oakhealth.com' },
-    { name: 'Phone Number', date: '(217) 555-9876' },
-    { name: 'Password', date: 'ilikecats2017' },
-    { name: 'License Number', date: 'IL-11234567' },
-  ];
-  const insuranceAccepted = [
-    { name: 'BlueCross BlueShield'},
-    { name: 'Cigna' },
-    { name: 'Aetna' },
-    { name: 'Medicare' },
-    { name: 'UnitedHealthcare' },
-  ];
+  const [users, setUsers] = useState([]);
+
+
+    useEffect(() => {
+      const fetchPatients = async () => {
+        try {
+          const querySnapshot = await getDocs(collection(db, 'users'));
+          const usersData = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setUsers(usersData);
+        } catch (error) {
+          console.error('Error fetching users:', error);
+        }
+      };
+  
+      fetchPatients();
+    }, []);
+
+    
 
   return (
     <div className="updates-table-container">
@@ -24,12 +34,24 @@ const ProfileInfo = () => {
       </div>
       <table className="updates-table">
         <tbody>
-          {doctorInformation.map((update, index) => (
+          {users.map((user, index) => (
             <tr key={index}>
-              <td>{update.name}</td>
-              <td>{update.date}</td>
+              <td>{"Name"}</td>
+              <td>{user.name}</td>
             </tr>
           ))}
+          {users.map((user, index) => (
+            <tr key={index}>
+              <td>{"Email"}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+          {/* {doctorInformation.map((column, index) => (
+            <tr key={index}>
+              <td>{column.name}</td>
+              <td>{column.date}</td>
+            </tr>
+          ))} */}
         </tbody>
       </table>
       <br/>
@@ -39,12 +61,12 @@ const ProfileInfo = () => {
       </div>
       <table className="updates-table">
         <tbody>
-          {insuranceAccepted.map((update, index) => (
+          {/* {insuranceAccepted.map((column, index) => (
             <tr key={index}>
-              <td>{update.name}</td>
-              <td>{update.date}</td>
+              <td>{column.name}</td>
+              <td>{column.date}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </div>

@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
 import Logo from '../images/cube-01.svg';
 import GoogleIcon from '../images/google-icon.svg';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
+import { collection, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, updateProfile } from 'firebase/auth';
 
 const Signup = () => {
@@ -24,9 +25,16 @@ const Signup = () => {
     }
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
       await updateProfile(userCredential.user, {
         displayName: name,
       });
+
+      await addDoc(collection(db, "users"), {
+        name,
+        email,
+      });
+
       alert('Account created successfully');
       navigate('/dashboard');
     } catch (err) {
@@ -34,10 +42,17 @@ const Signup = () => {
     }
   };
 
-  const handleGoogleSignUp = async () => {
+  const handleGoogleSignUp = async (e) => {
+    e.preventDefault();
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
+
+      await addDoc(collection(db, "users"), {
+        name,
+        email,
+      });
+
       alert('Signed up with Google');
       navigate('/dashboard');
     } catch (err) {

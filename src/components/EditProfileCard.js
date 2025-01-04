@@ -63,24 +63,6 @@ const EditProfileCard = () => {
             onChange={handleInputChange}
           />
           
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="New password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-          
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            placeholder="Confirm new password?"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-          />
-          
           <label htmlFor="licenseNumber">License Number</label>
           <input
             type="text"
