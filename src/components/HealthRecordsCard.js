@@ -32,7 +32,7 @@ const HealthRecordsCard = () => {
   const formatDate = (date) => {
     if (!date) return 'N/A';
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(date.seconds * 1000).toLocaleDateString(undefined, options);
+    return new Date(date.seconds * 1000).toLocaleDateString('en-US', options);
   };
 
   return (

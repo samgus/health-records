@@ -1,104 +1,143 @@
-/* Basic reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body, html {
-    height: 100%;
-  }
-  
-  .splash-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    background-color: #F3F4F6; /* light grey background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  background-color: #F3F4F6; /* light grey background */
+  padding-bottom: 5vh; /* Add padding to reduce space at the bottom */
+}
+
+.header {
+  text-align: center;
+  margin-top: 16vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-family: 'Quicksand';
+  font-weight: bold;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1A181D; /* Dark color for the title */
+}
+
+p {
+  font-size: 1rem;
+  color: #504F53; /* Grey for the tagline */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px; /* Reduced margin-top to bring buttons closer to the header */
+}
+
+.login-button, .get-started-button {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.login-button {
+  background-color: #fff;
+  color: #1A181D;
+  border: 1px solid #C6C5C6;
+}
+
+.get-started-button {
+  background-color: #5E2E93;
+  color: #fff;
+}
+
+.get-started-button:hover, .login-button:hover {
+  opacity: 0.9;
+}
+
+.illustration-container {
+  margin-top: 10vh; /* Reduced margin-top here to bring the illustration closer */
+  margin-bottom: 0; /* Removed bottom margin to keep things tight */
+}
+
+.illustration {
+  width: 100%;
+  max-width: 500px; /* Limit max width */
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem; /* Adjust header font size for tablets */
   }
 
-  .item-container {
-    display: flex;
+  .header p {
+    font-size: 0.9rem; /* Smaller tagline text for tablets */
   }
-  
+
+  .button-container {
+    gap: 15px;
+  }
+
+  .login-button, .get-started-button {
+    font-size: 1rem; /* Adjust button text size for smaller screens */
+  }
+
+  .illustration {
+    max-width: 400px; /* Smaller image for mobile */
+  }
+}
+
+@media (max-width: 480px) {
   .header {
-    text-align: center;
-    margin-top: 16vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    margin-top: 8vh;
   }
 
   .header h1 {
-    font-size: 32px;
-    font-family: 'Quicksand';
-    font-weight: bold;
+    font-size: 1.8rem; /* Smaller header font size for mobile */
   }
 
-  .header-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+  .p {
+    font-size: 0.8rem; /* Adjust tagline font size for mobile */
   }
-  
-  .logo {
-    width: 60px;
-    height: 60px;
-  }
-  
-  h1 {
-    font-size: rem;
-    font-weight: 600;
-    /* margin-top: 1rem; */
-    color: #1A181D; /* Dark color for the title */
-  }
-  
-  p {
-    font-size: 1rem;
-    color: #504F53; /* Grey for the tagline */
-    /* margin-top: 0.5rem; */
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
+
   .login-button, .get-started-button {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
+    padding: 10px 20px; /* Smaller buttons for mobile */
+    font-size: 0.9rem;
   }
-  
-  .login-button {
-    background-color: #fff;
-    color: #1A181D;
-    border: 1px solid #C6C5C6;
-  }
-  
-  .get-started-button {
-    background-color: #5E2E93;
-    color: #fff;
-  }
-  
-  .get-started-button:hover, .login-button:hover {
-    opacity: 0.9;
-  }
-  
-  .illustration-container {
-    margin-top: auto;
-    margin-bottom: 5vh;
-  }
-  
+
   .illustration {
-    max-width: 600px;
-    height: auto;
+    max-width: 350px; /* Further reduce the image size */
   }
-  
+}

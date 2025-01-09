@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../firebase'; // Adjust the path to your Firebase configuration
 import './EditPatientCard.css';
-import Plus from '../images/plus.svg';
 // import { Link } from 'react-router-dom';
 
 const EditPatientCard = ({patientId}) => {
@@ -104,28 +103,6 @@ const EditPatientCard = ({patientId}) => {
       console.error('Error updating Firestore:', error);
     }
   };
-
-  // const handleEdit = (id) => {
-  //   const selectedPatient = patientsList.find((p) => p.id === id);
-  //   setPatient(selectedPatient);
-  //   setIsEditing(true);
-  //   setShowForm(true);
-  // };
-
-  // const handleDelete = async () => {
-  //   const confirmed = window.confirm('Are you sure you want to delete this patient? This action cannot be undone.');
-  //   if (confirmed) {
-  //     try {
-  //       await deleteDoc(doc(db, 'patients', patientId));
-  //       alert('Patient deleted successfully!');
-  //       setPatient(null); // Optionally clear the UI
-  //       navigate('/health-records');
-  //     } catch (error) {
-  //       console.error('Error deleting patient:', error);
-  //       alert('Failed to delete the patient.');
-  //     }
-  //   }
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -572,10 +549,6 @@ const EditPatientCard = ({patientId}) => {
             </button>
             </Link>
           </div>
-          {/* <button className="delete-patient-btn" onClick={handleDelete}>
-              Delete Patient
-          </button> */}
-
         </form>
       )}
     </div>

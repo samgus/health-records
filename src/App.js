@@ -13,6 +13,7 @@ import PatientProfile from './pages/PatientProfile';
 import EditPatientProfile from './pages/EditPatientProfile';
 import NotFoundPage from './pages/404page';
 import { PatientsProvider } from './components/PatientsContext';
+import Sidebar from './components/Sidebar';
 
 const App = () => {
   return (
@@ -22,8 +23,9 @@ const App = () => {
         <Route path="/" element={<SplashPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/edit-profile" element={<EditProfile />} />
+        <Route path="/profile/:userId" element={<Profile />} />
+        <Route path="/profile/:userId" element={<Sidebar />} />
+        <Route path="/edit-profile/:userId" element={<EditProfile />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/health-records" element={<HealthRecords/>} />
         <Route path="/patient-profile/:patientId" element={<PatientProfile/>} />

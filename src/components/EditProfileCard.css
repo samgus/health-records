@@ -85,3 +85,32 @@
     color: #fff;
   }
   
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .form-grid div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .form-selection {
+    margin-bottom: 28px;
+  }

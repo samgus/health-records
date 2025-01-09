@@ -1,6 +1,7 @@
-/* Container */
+/* General styles */
 .login-container {
   display: flex;
+  flex-direction: column; /* Ensure the layout is column on smaller screens */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -8,15 +9,14 @@
   padding: 0 20px;
 }
 
-/* Login form styling */
 .login-form {
   max-width: 400px;
   width: 100%;
   padding: 40px;
   border-radius: 8px;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
-  margin-left: auto; /* Pushes the form to the right */
-  margin-right: 0;
+  /* background-color: white; Added a background color for better contrast */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); Slight shadow to separate the form */
+  margin-bottom: 20px;
 }
 
 .login-logo {
@@ -41,7 +41,7 @@ p {
 }
 
 .input-group {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
 label {
@@ -53,7 +53,7 @@ label {
 
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
@@ -149,33 +149,81 @@ input {
   text-decoration: none;
 }
 
-/* Adjust layout on larger screens */
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .login-container {
+    padding: 20px 10px; /* Reduced padding */
+  }
+
+  .login-form {
+    padding: 20px;
+  }
+
+  .login-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  input {
+    padding: 10px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .google-login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .signup-link {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .or-divider {
+    font-size: 12px;
+    margin: 15px 0;
+  }
+
+  .terms {
+    font-size: 10px;
+    margin-top: 10px;
+  }
+}
+
+/* Large screen responsiveness */
 @media (min-width: 992px) {
   .login-container {
+    flex-direction: row; /* Align the form and illustration side by side */
     justify-content: center;
     align-items: center;
     padding: 0 50px;
   }
 
-  /* Move form to the right and balance spacing */
   .login-form {
-    margin-left: 0px; /* Increase this value to move the form more to the right */
+    margin-right: 40px;
+    margin-left: 0;
   }
 
-  /* Show the illustration on larger screens */
   .login-illustration {
-    margin-top: 90px;
-    width: 440px;   /* Define the width */
-    height: 500px;  /* Define the height */
-    overflow: hidden; /* Hide any overflow (cropping) */
-    
+    width: 440px;
+    height: 500px;
   }
 
   .login-illustration img {
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
-    /* max-width: 500px; */
-    
   }
 }
