@@ -25,40 +25,47 @@ const Signup = () => {
     }
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      
+  
       await updateProfile(userCredential.user, {
         displayName: name,
       });
-
+  
+      // Add user data to Firestore, including uid
       await addDoc(collection(db, "users"), {
+        uid: userCredential.user.uid, // Add the user's unique ID
         name,
         email,
       });
-
+  
       alert('Account created successfully');
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
     }
   };
-
+  
   const handleGoogleSignUp = async (e) => {
     e.preventDefault();
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-
+      const userCredential = await signInWithPopup(auth, provider);
+  
+      const { user } = userCredential;
+  
+      // Add user data to Firestore, including uid
       await addDoc(collection(db, "users"), {
-        name,
-        email,
+        uid: user.uid, // Add the user's unique ID
+        name: user.displayName, // Use Google account name
+        email: user.email, // Use Google account email
       });
-
+  
       alert('Signed up with Google');
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
     }
   };
+  
 
   return (
     <div className="signup-container">
