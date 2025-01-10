@@ -28,9 +28,9 @@
 }
 
 .navbar-title {
-  font-family: 'Quicksand', "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Figtree', "Helvetica Neue", Helvetica, sans-serif;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   color: #333;
 }
 
@@ -46,14 +46,14 @@
 }
 
 .profile-name {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
 }
 
 .profile-icon {
-  font-family: 'Inter';
+  font-family: 'Figtree';
   background-color: #5E2E93;
   color: white;
   font-size: 14px;

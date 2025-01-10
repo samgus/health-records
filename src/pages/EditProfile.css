@@ -9,9 +9,9 @@
   
   /* Left-align the header (main title) */
   .edit-profile {
-    font-family: 'Quicksand';
+    font-family: 'Figtree';
     font-size: 32px;
-    font-weight: bold;
+    font-weight: 600;
     color: #000;
     text-align: left;
   }

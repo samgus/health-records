@@ -38,10 +38,10 @@
   /* Left-align the header (main title) */
   .patient-profile-header {
     font-size: 32px;
-    font-weight: 700;
+    font-weight: 600;
     color: #000;
     text-align: left;
-    font-family: 'Quicksand';
+    font-family: 'Figtree';
   }
   
   /* Left-align the subheader */
