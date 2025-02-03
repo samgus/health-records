@@ -1,35 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './RecentUpdatesTable.css'; // Import the CSS file for styling
 import Plus from '../images/plus.svg';
-import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { collection, query, orderBy, limit, getDocs, where } from 'firebase/firestore';
 import { db } from '../firebase'; // Adjust the path to your Firebase configuration
+import { AuthContext } from '../contexts/AuthContext';
+
 
 const RecentUpdatesTable = () => {
-  const [updates, setUpdates] = useState([]);
+  const [patients, setPatients] = useState([]);
+  const doctor = useContext(AuthContext)
+  
 
   useEffect(() => {
     const fetchRecentUpdates = async () => {
+       if (!doctor) return [];
+            const patientsRef = collection(db, 'patients')
+            const q = query(patientsRef, where("doctorId", "==", doctor.uid))
+            // orderBy('lastAccessed', 'desc'), // Sort by lastAccessed in descending order
+            // limit(5)) // Limit the results to 5
+
+            
       try {
         // Query Firestore to get the 5 most recently accessed patients
-        const q = query(
-          collection(db, 'patients'),
-          orderBy('lastAccessed', 'desc'), // Sort by lastAccessed in descending order
-          limit(5) // Limit the results to 5
-        );
-        const querySnapshot = await getDocs(q);
-        const recentPatients = querySnapshot.docs.map((doc) => ({
+        // const q = query(
+        //   patientsRef,
+        //   orderBy('lastAccessed', 'desc'), // Sort by lastAccessed in descending order
+        //   limit(5) // Limit the results to 5
+        // );
+        const querySnapshot = await getDocs(q)
+        const patientsData = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
-        setUpdates(recentPatients);
+        setPatients(patientsData);
       } catch (error) {
-        console.error('Error fetching recent updates:', error);
+        console.error('Error fetching patients:', error);
       }
     };
 
     fetchRecentUpdates();
-  }, []);
+  }, [doctor]);
 
   const formatDate = (date) => {
     if (!date) return 'N/A';
@@ -47,14 +58,15 @@ const RecentUpdatesTable = () => {
         <thead>
           <tr>
             <th>Name</th>
-            <th>Last Updated</th>
+            <th>Last Accessed
+            </th>
           </tr>
         </thead>
         <tbody>
-          {updates.map((update) => (
+          {patients.map((update) => (
             <tr key={update.id}>
               <td>{update.fullName || 'Unknown'}</td>
-              <td>{formatDate(update.lastAccessed)}</td>
+              <td>{update.dateOfBirth}</td>
             </tr>
           ))}
         </tbody>

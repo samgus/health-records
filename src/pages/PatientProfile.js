@@ -50,7 +50,7 @@ const PatientProfile = () => {
             <p className="patient-profile-subheader">Manage {patient.fullName || 'the patient'}'s medical records.</p>
           </div>
           <Link to={`/edit-patient-profile/${patient.id}`}>
-            <button className="edit-information-btn">Edit Information</button>
+            <button className="edit-information-btn">Edit Patient</button>
           </Link>
         </div>
         <PatientProfileCard patientId={patientId} />

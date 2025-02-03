@@ -4,49 +4,14 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase"; // Update with your firebase.js path
 import './AdditionalCard.css';
 import Plus from '../images/plus.svg';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
 const AdditionalCard = () => {
   const navigate = useNavigate();
-  const [patient, setPatient] = useState({
-    fullName: '',
-    dateOfBirth: '',
-    gender: '',
-    address: '',
-    phoneNumber: '',
-    email: '',
-    maritalStatus: '',
-    emergencyContact: '',
-    occupation: '',
-    provider: '',
-    policyNumber: '',
-    groupNumber: '',
-    coverageType: '',
-    pcp: '',
-    effectiveDate: '',
-    smokingStatus: '',
-    alcoholUse: '',
-    exercise: '',
-    diet: '',
-    sleepHabits: '',
-    stressLevels: '',
-    chronicConditions: '',
-    surgeries: '',
-    medications: '',
-    allergies: '',
-    date: '',
-    reasonForVisit: '',
-    notes: '',
-    nextAppointment: '',
-    height: '',
-    weight: '',
-    bmi: '',
-    bloodPressure: '',
-    heartRate: '',
-    respiratoryRate: '',
-    generalHealthStatus: '',
-    recommendations: '',
-    referrals: '',
-  });
+  const [patient, setPatient] = useState({});
+  const user = useContext(AuthContext)
+  console.log("user: ", user)
 
   const inputStyle = {
     marginTop: '4px',
@@ -67,6 +32,12 @@ const AdditionalCard = () => {
 
   const [formType, setFormType] = useState('');
   const [showForm, setShowForm] = useState(false);
+
+  const formatDate = (date) => {
+    if (!date) return 'N/A';
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(date.seconds * 1000).toLocaleDateString('en-US', options);
+  };
 
   const handleFormTypeChange = (e) => {
     const selectedFormType = e.target.value;
@@ -91,49 +62,10 @@ const AdditionalCard = () => {
   
       try {
           // Save patient data to Firestore
-          await addDoc(collection(db, "patients"), patient);
+          await addDoc(collection(db, "patients"), { ...patient, doctorId: user.uid });
 
           // Reset the form
-          setPatient({
-              fullName: '',
-              dateOfBirth: '',
-              gender: '',
-              address: '',
-              phoneNumber: '',
-              email: '',
-              maritalStatus: '',
-              emergencyContact: '',
-              occupation: '',
-              provider: '',
-              policyNumber: '',
-              groupNumber: '',
-              coverageType: '',
-              pcp: '',
-              effectiveDate: '',
-              smokingStatus: '',
-              alcoholUse: '',
-              exercise: '',
-              diet: '',
-              sleepHabits: '',
-              stressLevels: '',
-              chronicConditions: '',
-              surgeries: '',
-              medications: '',
-              allergies: '',
-              date: '',
-              reasonForVisit: '',
-              notes: '',
-              nextAppointment: '',
-              height: '',
-              weight: '',
-              bmi: '',
-              bloodPressure: '',
-              heartRate: '',
-              respiratoryRate: '',
-              generalHealthStatus: '',
-              recommendations: '',
-              referrals: '',
-          });
+          setPatient({});
           setShowForm(false); // Hide the form
           alert("Patient record added successfully!");
           navigate('/health-records');

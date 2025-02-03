@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-import './sidebar.css';
+import './Sidebar.css';
 import UserIcon from '../images/user-01.svg';
 import HomeIcon from '../images/home-smile.svg';
 import FileIcon from '../images/file-02.svg';
@@ -30,6 +30,7 @@ const Sidebar = () => {
     };
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
       if (user) {
         setCurrentUser(user);
         fetchCurrentUserDoc(user.uid); // Fetch Firestore document for the logged-in user
@@ -60,7 +61,7 @@ const Sidebar = () => {
         {/* Profile Menu */}
         <li className="menu-item">
           {currentUserDoc ? (
-            <Link to={`/profile/${currentUserDoc.id}`} className="menu-link">
+            <Link to={`/profile/${currentUserDoc.uid}`} className="menu-link">
               <img src={UserIcon} alt="Profile" /> Profile
             </Link>
           ) : currentUser ? (
